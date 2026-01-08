@@ -1,9 +1,5 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { SambalAnalysis } from "../types";
-
-// Hapus inisialisasi global yang bikin crash (White Screen)
-// const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 const GEPREK_SYSTEM_INSTRUCTION = `
 You are "Bang Jago", a world-class Senior Software Engineer who is also an obsessive Ayam Geprek chef. 
 You speak in a mix of technical jargon and Indonesian street food metaphors (Geprek slang). 
@@ -11,12 +7,10 @@ Everything is about "pedas" (spicy/hard), "ngulek" (refactoring/fixing), "garing
 Be helpful, correct with code, but keep the persona strong. Use 'wkwk' occasionally.
 `;
 
-// Helper function untuk inisialisasi AI hanya saat dibutuhkan (Lazy Load)
 const getAiClient = () => {
   const apiKey = process.env.API_KEY;
   
   if (!apiKey) {
-    // Error handling biar user tau kalau Env Var belum masuk
     throw new Error("Waduh, API Key ga kebaca! Pastikan Environment Variable 'API_KEY' sudah diset di Vercel/Hosting.");
   }
   
