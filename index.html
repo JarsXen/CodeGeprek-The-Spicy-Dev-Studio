@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeGeprek x JarsDev</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Poppins', 'sans-serif'],
+              mono: ['JetBrains Mono', 'monospace'],
+            },
+            colors: {
+              geprek: {
+                red: '#EF4444',
+                darkred: '#991B1B',
+                orange: '#F97316',
+                yellow: '#EAB308',
+                offwhite: '#FEF2F2',
+                charcoal: '#18181B',
+                paper: '#27272A'
+              }
+            },
+            animation: {
+              'float': 'float 6s ease-in-out infinite',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #18181B;
+        color: #FEF2F2;
+        overflow-x: hidden;
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #27272A; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #EF4444; 
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #F97316; 
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(10deg); }
+      }
+
+      /* 
+         THE REAL GEPREK ANIMATION 
+         Timing: Total 2s loop
+      */
+
+      @keyframes fierce-hammer {
+        0%, 20% { transform: rotate(0deg) translate(0, 0); }
+        35% { transform: rotate(45deg) translate(20px, -40px); }
+        45% { transform: rotate(-70deg) translate(-20px, 50px); }
+        50% { transform: rotate(-70deg) translate(-20px, 50px); }
+        70% { transform: rotate(0deg) translate(0, 0); }
+        100% { transform: rotate(0deg); }
+      }
+
+      @keyframes chicken-crush {
+        0%, 42% { transform: scale(1); opacity: 1; }
+        45% { transform: scale(1.8, 0.05); opacity: 1; }
+        48% { transform: scale(2, 0); opacity: 0; }
+        49%, 75% { transform: scale(0); opacity: 0; }
+        85% { transform: scale(1.2); opacity: 1; }
+        100% { transform: scale(1); opacity: 1; }
+      }
+
+      @keyframes impact-boom {
+        0%, 44% { transform: scale(0.5); opacity: 0; }
+        45% { transform: scale(1); opacity: 1; border-width: 10px; }
+        55% { transform: scale(3); opacity: 0; border-width: 0px; }
+        100% { opacity: 0; }
+      }
+
+      @keyframes text-pop {
+        0%, 44% { opacity: 0; transform: scale(0.5) rotate(-10deg); }
+        45% { opacity: 1; transform: scale(1.5) rotate(-10deg); }
+        60% { opacity: 1; transform: scale(1) rotate(-10deg); }
+        70% { opacity: 0; transform: translateY(-50px) rotate(-10deg); }
+        100% { opacity: 0; }
+      }
+
+      /* Fire Explosion Effect */
+      @keyframes fire-pop {
+        0%, 42% { transform: scale(0) translateY(20px); opacity: 0; }
+        45% { transform: scale(1.5) translateY(0) rotate(-10deg); opacity: 1; filter: brightness(1.5) drop-shadow(0 0 10px orange); } /* BOOM */
+        55% { transform: scale(2) translateY(-40px) rotate(10deg); opacity: 0.8; } /* Rise */
+        70% { transform: scale(1) translateY(-80px); opacity: 0; } /* Dissipate */
+        100% { opacity: 0; }
+      }
+
+      /* Screen Shake Effect - Synced with Impact */
+      @keyframes shake-hard {
+        0%, 43% { transform: translate(0, 0); }
+        45% { transform: translate(-3px, 3px); }
+        46% { transform: translate(3px, -3px); }
+        47% { transform: translate(-3px, 3px); }
+        48% { transform: translate(3px, -3px); }
+        49% { transform: translate(-2px, 2px); }
+        50% { transform: translate(0, 0); }
+        100% { transform: translate(0, 0); }
+      }
+
+      .animate-hammer-hit {
+        animation: fierce-hammer 2s ease-in-out infinite;
+        transform-origin: bottom right;
+      }
+
+      .animate-chicken-crush {
+        animation: chicken-crush 2s ease-in-out infinite;
+        transform-origin: bottom center;
+      }
+
+      .animate-impact {
+        animation: impact-boom 2s linear infinite;
+      }
+      
+      .animate-text-pop {
+        animation: text-pop 2s ease-out infinite;
+      }
+
+      .animate-fire-pop {
+        animation: fire-pop 2s ease-out infinite;
+      }
+
+      .animate-shake-impact {
+        animation: shake-hard 2s ease-in-out infinite;
+      }
+      
+      .glass-panel {
+        background: rgba(39, 39, 42, 0.6);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
