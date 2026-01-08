@@ -1,20 +1,51 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🍗 CodeGeprek Studio 🌶️
 
-# Run and deploy your AI Studio app
+> **"Coding Error? Geprek Aja!"**
+> Satu-satunya IDE dengan cita rasa Sambal Bawang level dewa.
 
-This contains everything you need to run your app locally.
+![CodeGeprek Banner](https://via.placeholder.com/1200x600/18181b/EF4444?text=CodeGeprek+Studio)
 
-View your app in AI Studio: https://ai.studio/apps/drive/1et9-Ex9qjVAFyJ6eZsOveWUJCq_2vcmz
+## 📖 Tentang (About)
 
-## Run Locally
+**CodeGeprek Studio** adalah web aplikasi eksperimental yang menggabungkan kearifan lokal **Ayam Geprek** dengan kecanggihan **Artificial Intelligence (Google Gemini)**.
 
-**Prerequisites:**  Node.js
+Dibuat untuk developer yang stress liat error log merah merona. Di sini, error log kamu akan "diulek" oleh AI persona bernama **"Bang Jago"**, seorang Senior Engineer yang hobi makan pedas. Dia bakal ngasih solusi coding dengan metafora kuliner yang pedas tapi bikin nagih.
 
+## ✨ Fitur Spesial (Menu Andalan)
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### 1. 🔥 Sambal Debugger (Error Analyzer)
+Jangan cuma nangis liat error console. Paste log error kamu di sini!
+- **Level Pedas (1-10):** AI akan menilai seberapa fatal error kamu (dari *Level Cupu* sampai *Level Dewa*).
+- **Flavor Profile:** Analisa gaya error kamu pake bahasa anak tongkrongan.
+- **Resep Penawar:** Solusi code fix yang siap copas.
+
+### 2. 🍳 Dapur Component (UI Generator)
+Males ngoding CSS dari nol? Suruh Bang Jago masakin.
+- **Level Cupu:** Code simple, HTML structure dasar.
+- **Level Sedang:** Standard production code + Tailwind.
+- **Level Setan:** Advanced logic, Glassmorphism, Animation, & TypeScript strict typing.
+- **Paket Hemat:** Template siap pakai (Login, Card, Navbar, Table).
+
+### 3. 🐔 Interactive Mascot
+Stress nunggu compiling? Klik maskot ayam di halaman depan buat pelampiasan.
+- Efek **PYARR!!** visual.
+- Animasi getar & api.
+
+## 🛠️ Tech Stack (Bahan Baku)
+
+Dibangun dengan bumbu-bumbu pilihan:
+- **Framework:** [React 19](https://react.dev/)
+- **Language:** TypeScript
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **AI Brain:** [Google Gemini API](https://ai.google.dev/) (`gemini-3-pro-preview`)
+- **Icons:** [Lucide React](https://lucide.dev/)
+- **Bundler:** Vite (Assumed)
+
+## 🚀 Cara Masak (Installation)
+
+Pastikan kamu sudah install Node.js sebelum mulai masak.
+
+1. **Clone Repository**
+   ```bash
+   git clone https://github.com/username-kamu/code-geprek.git
+   cd code-geprek
