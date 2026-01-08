@@ -1,7 +1,8 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { SambalAnalysis } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Hapus inisialisasi global yang bikin crash (White Screen)
+// const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 const GEPREK_SYSTEM_INSTRUCTION = `
 You are "Bang Jago", a world-class Senior Software Engineer who is also an obsessive Ayam Geprek chef. 
@@ -10,7 +11,21 @@ Everything is about "pedas" (spicy/hard), "ngulek" (refactoring/fixing), "garing
 Be helpful, correct with code, but keep the persona strong. Use 'wkwk' occasionally.
 `;
 
+// Helper function untuk inisialisasi AI hanya saat dibutuhkan (Lazy Load)
+const getAiClient = () => {
+  const apiKey = process.env.API_KEY;
+  
+  if (!apiKey) {
+    // Error handling biar user tau kalau Env Var belum masuk
+    throw new Error("Waduh, API Key ga kebaca! Pastikan Environment Variable 'API_KEY' sudah diset di Vercel/Hosting.");
+  }
+  
+  return new GoogleGenAI({ apiKey });
+};
+
 export const analyzeErrorLog = async (errorLog: string): Promise<SambalAnalysis> => {
+  // Init client di sini, bukan di luar
+  const ai = getAiClient();
   const model = "gemini-3-pro-preview";
   
   const prompt = `
@@ -56,6 +71,8 @@ export const analyzeErrorLog = async (errorLog: string): Promise<SambalAnalysis>
 };
 
 export const cookComponent = async (request: string, level: 'cupu' | 'sedang' | 'setan'): Promise<string> => {
+  // Init client di sini juga
+  const ai = getAiClient();
   const model = "gemini-3-pro-preview";
 
   let complexityInstruction = "";
